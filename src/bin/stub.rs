@@ -29,7 +29,9 @@ fn delete_old_bin() -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    delete_old_bin()?;
+    if let Err(e) = delete_old_bin() {
+        eprintln!("{}", e);
+    }
     println!("Hello, world!");
     Ok(())
 }
