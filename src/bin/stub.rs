@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use anyhow::{anyhow, Result};
+use anyhow::{bail, Result};
 
 const ACTUALLY_DELETE: bool = true;
 
@@ -21,10 +21,7 @@ fn delete_old_bin() -> Result<()> {
         do_delete(&old_bin)?;
         Ok(())
     } else {
-        Err(anyhow!(format!(
-            "Missing/not-a-file: {}",
-            old_bin.display()
-        )))
+        bail!("Missing/not-a-file: {}", old_bin.display())
     }
 }
 
