@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use anyhow::{bail, Result};
+use anyhow::Result;
 
 const ACTUALLY_DELETE: bool = true;
 
@@ -19,10 +19,8 @@ fn delete_old_bin() -> Result<()> {
     let old_bin = PathBuf::from("replace.exe.old");
     if old_bin.is_file() {
         do_delete(&old_bin)?;
-        Ok(())
-    } else {
-        bail!("Missing/not-a-file: {}", old_bin.display())
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {
