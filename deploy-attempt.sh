@@ -2,8 +2,9 @@
 
 cross build --target x86_64-pc-windows-gnu
 mkdir -p /mnt/hostshare/scratch
-rm /mnt/hostshare/scratch/* || true
-cp target/x86_64-pc-windows-gnu/debug/*.exe /mnt/hostshare/scratch/
+rm -vf /mnt/hostshare/scratch/*
+cp -v target/x86_64-pc-windows-gnu/debug/*.exe /mnt/hostshare/scratch/
 cd /mnt/hostshare/scratch
-cp new-version.exe replace.exe.new
-cp replace.exe replace.exe.bak
+echo "Setting up initial conditions"
+cp -v new-version.exe replace.exe.new
+cp -v replace.exe replace.exe.new.bak

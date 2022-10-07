@@ -9,7 +9,9 @@ fn rename() -> Result<()> {
     let new = PathBuf::from("replace.exe.new");
 
     fs::rename(&middle, &old)?;
+    eprintln!("Rename: {} -> {}", middle.display(), old.display());
     fs::rename(&new, &middle)?;
+    eprintln!("Rename: {} -> {}", new.display(), middle.display());
     Ok(())
 }
 
@@ -18,6 +20,7 @@ fn detect_new_version() -> bool {
 }
 
 fn main() -> Result<()> {
+    eprintln!("Version: old");
     let replace = detect_new_version();
     if replace {
         rename()?;

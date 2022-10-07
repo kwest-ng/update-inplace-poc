@@ -8,9 +8,8 @@ const ACTUALLY_DELETE: bool = true;
 fn do_delete(p: &Path) -> Result<()> {
     if ACTUALLY_DELETE {
         fs::remove_file(p)?;
-    } else {
-        println!("Dry delete: {}", p.display());
-    }
+    } 
+    eprintln!("delete: {}", p.display());
 
     Ok(())
 }
@@ -24,9 +23,9 @@ fn delete_old_bin() -> Result<()> {
 }
 
 fn main() -> Result<()> {
+    eprintln!("Version: new");
     if let Err(e) = delete_old_bin() {
         eprintln!("{}", e);
     }
-    println!("Hello, world!");
     Ok(())
 }
