@@ -28,6 +28,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
+// This makes str -> path conversion trivial.
 fn is_file<P: AsRef<Path>>(path: P) -> bool {
     path.as_ref().is_file()
 }
