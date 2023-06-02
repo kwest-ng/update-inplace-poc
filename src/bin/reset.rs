@@ -16,7 +16,7 @@ fn main() -> Result<()> {
     }
     if !(is_file(new_version) && is_file(replace_backup)) {
         bail!(
-            "Error: both '{}' and '{}' must exist to reset safely",
+            "both '{}' and '{}' must exist to reset safely",
             new_version,
             replace_backup
         );
