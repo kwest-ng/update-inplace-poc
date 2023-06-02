@@ -8,7 +8,7 @@ fn main() -> Result<()> {
     let real_replace = "replace.exe";
     let new_replace = "replace.exe.new";
     let new_version = "new-version.exe";
-    let replace_backup = "replace.exe.new.bak";
+    let replace_backup = "replace.exe.bak";
 
     if is_file(old_replace) {
         fs::remove_file(&old_replace)?;
